@@ -7,7 +7,7 @@ def home():
     return 'Hello, World!'
 
 @app.route('/test/<text>')
-def test(test):
+def test(text):
     return text
     
 @app.route('/about')
