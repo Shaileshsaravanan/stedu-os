@@ -6,7 +6,140 @@
     <script src="/static/datepicker.js"></script>
     <link rel="stylesheet" href="/static/flowbite.min.css">
 </head>
+<header class="absolute top-0 fixed z-50 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
+    <nav class="mt-4 relative max-w-2xl w-full bg-white border border-gray-200 rounded-[2rem] mx-2 py-2.5 md:flex md:items-center md:justify-between md:py-0 md:px-4 md:mx-auto">
+      <div class="px-4 md:px-0 flex justify-between items-center">
+        <div>
+          <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80" href="../templates/personal/index.html" aria-label="Preline">
+            <svg class="h-8 mt-1" viewBox="0 0 382 222" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M74.3573 185.284C69.5882 195.947 74.435 208.677 85.245 213.512C95.8863 218.271 104.873 216.899 109.642 206.235C109.642 206.235 109.742 192.736 109.993 158.737C98.4732 164.553 79.8076 173.097 74.3573 185.284Z" fill="url(#paint0_linear_0_1)"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M47.0957 156.575C36.0878 165.338 33.2988 180.148 40.8663 189.654C48.4338 199.16 63.4921 199.763 74.5 191L110 159L110.664 113.824L47.0957 156.575Z" fill="url(#paint1_linear_0_1)"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M56.9531 166.688C37.5033 173.232 16.9919 165.385 11.5057 149.079C6.10518 133.028 17.7015 114.378 37.1513 107.834C58.4531 100.667 90.9831 108.587 110.5 114.5C97.6005 131.319 79.1814 159.209 56.9531 166.688Z" fill="url(#paint2_linear_0_1)"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M35.1793 118.743C15.9072 110.993 5.11328 91.8809 11.4065 76.2317C17.6015 60.8267 38.6219 54.5085 57.894 62.2586C79.0013 70.7467 99.3673 97.467 110.642 114.5C89.7964 118.616 57.2045 127.6 35.1793 118.743Z" fill="url(#paint3_linear_0_1)"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M72.446 32.3722C61.6662 23.3301 47.2671 22.7482 40.2847 31.0725C33.3022 39.3968 36.3806 53.475 47.1603 62.5171L110.642 114.5L110.642 64.5L72.446 32.3722Z" fill="url(#paint4_linear_0_1)"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M75.2033 37.6903C70.5131 26.9919 75.4538 14.2983 86.2992 9.54362C96.9753 4.86318 105.952 6.30157 110.642 17C110.642 17 110.642 30.5 110.642 64.5C99.1655 58.5988 80.5635 49.9171 75.2033 37.6903Z" fill="url(#paint5_linear_0_1)"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M144.947 185.284C149.716 195.947 144.869 208.677 134.059 213.512C123.418 218.271 114.431 216.899 109.662 206.235C109.662 206.235 109.563 192.736 109.312 158.737C120.831 164.553 139.497 173.097 144.947 185.284Z" fill="url(#paint6_linear_0_1)"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M172.209 156.575C183.217 165.338 186.006 180.148 178.438 189.654C170.871 199.16 155.812 199.763 144.804 191L109.304 159L108.64 113.824L172.209 156.575Z" fill="url(#paint7_linear_0_1)"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M162.351 166.688C181.801 173.232 202.312 165.385 207.799 149.079C213.199 133.028 201.603 114.378 182.153 107.834C160.851 100.667 128.321 108.587 108.804 114.5C121.704 131.319 140.123 159.209 162.351 166.688Z" fill="url(#paint8_linear_0_1)"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M184.125 118.743C203.397 110.993 214.191 91.8809 207.898 76.2317C201.703 60.8267 180.682 54.5085 161.41 62.2586C140.303 70.7467 119.937 97.467 108.663 114.5C129.508 118.616 162.1 127.6 184.125 118.743Z" fill="url(#paint9_linear_0_1)"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M146.858 32.3722C157.638 23.3301 172.037 22.7482 179.02 31.0725C186.002 39.3968 182.924 53.475 172.144 62.5171L108.663 114.5L108.663 64.5L146.858 32.3722Z" fill="url(#paint10_linear_0_1)"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M144.101 37.6903C148.791 26.9919 143.851 14.2983 133.005 9.54362C122.329 4.86318 113.353 6.30157 108.663 17C108.663 17 108.663 30.5 108.663 64.5C120.139 58.5988 138.741 49.9171 144.101 37.6903Z" fill="url(#paint11_linear_0_1)"/>
+                <path d="M289.873 75.4785C259.094 58.9692 271.986 40.1244 282.279 32.7656L309.11 15.4885L303.541 6.37005C300.301 0.227076 305.903 -0.348828 309.11 0.131092L372.895 6.37005C381.805 7.52185 382.007 14.2087 380.995 17.4082L360.745 75.4785C358.72 82.6773 353.658 80.7576 352.139 78.8379L346.571 70.6793C345.558 69.2395 344.546 70.1993 343.533 70.6793L330.624 78.598L317.715 86.5166L289.873 75.4785Z" fill="url(#paint12_linear_0_1)"/>
+                <path d="M255.634 163.304L293.809 139.788L318.75 149.386C325.673 149.77 333.341 156.745 336.056 159.944C343.182 165.703 345.218 179.141 333.002 193.059L296.354 215.615C249.526 238.171 222.549 183.94 255.634 163.304Z" fill="url(#paint13_linear_0_1)"/>
+                <path d="M290.31 74.9985C259.832 58.4893 273.424 40.1244 283.616 32.7656L269.256 40.4443C226.748 64.2483 236.506 98.0347 247.2 111.952C254.944 122.031 276.274 132.589 290.31 138.348L322.392 151.306C350.463 164.743 339.769 185.06 330.913 193.539L354.473 178.181C383.748 154.761 372.018 124.43 363.496 111.952C356.278 100.05 330.078 89.7161 317.88 86.0367L290.31 74.9985Z" fill="url(#paint14_linear_0_1)"/>
+                <defs>
+                <linearGradient id="paint0_linear_0_1" x1="86.965" y1="162.717" x2="95.6467" y2="213.82" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F1CC47"/>
+                <stop offset="1" stop-color="#F4D67F"/>
+                </linearGradient>
+                <linearGradient id="paint1_linear_0_1" x1="65.4822" y1="200.07" x2="122.593" y2="176.418" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F0C343"/>
+                <stop offset="1" stop-color="#E63C8E"/>
+                </linearGradient>
+                <linearGradient id="paint2_linear_0_1" x1="109.439" y1="109.032" x2="9.35615" y2="122.06" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#865AE9"/>
+                <stop offset="1" stop-color="#E63D91"/>
+                </linearGradient>
+                <linearGradient id="paint3_linear_0_1" x1="7.6371" y1="85.605" x2="86.3343" y2="143.831" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#A081EB"/>
+                <stop offset="1" stop-color="#2D68DB"/>
+                </linearGradient>
+                <linearGradient id="paint4_linear_0_1" x1="38.49" y1="55.2443" x2="71.1221" y2="107.058" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F0ADF7"/>
+                <stop offset="1" stop-color="#4DA9F4"/>
+                </linearGradient>
+                <linearGradient id="paint5_linear_0_1" x1="86.2146" y1="9.58074" x2="110.348" y2="64.629" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#EDDCFB"/>
+                <stop offset="1" stop-color="#F0B6F6"/>
+                </linearGradient>
+                <linearGradient id="paint6_linear_0_1" x1="132.339" y1="162.717" x2="123.658" y2="213.82" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F1CC47"/>
+                <stop offset="1" stop-color="#F4D67F"/>
+                </linearGradient>
+                <linearGradient id="paint7_linear_0_1" x1="153.822" y1="200.07" x2="96.7113" y2="176.418" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F0C343"/>
+                <stop offset="1" stop-color="#E63C8E"/>
+                </linearGradient>
+                <linearGradient id="paint8_linear_0_1" x1="109.866" y1="109.032" x2="209.948" y2="122.06" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#865AE9"/>
+                <stop offset="1" stop-color="#E63D91"/>
+                </linearGradient>
+                <linearGradient id="paint9_linear_0_1" x1="211.667" y1="85.605" x2="132.97" y2="143.831" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#A081EB"/>
+                <stop offset="1" stop-color="#2D68DB"/>
+                </linearGradient>
+                <linearGradient id="paint10_linear_0_1" x1="180.814" y1="55.2443" x2="148.182" y2="107.058" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F0ADF7"/>
+                <stop offset="1" stop-color="#4DA9F4"/>
+                </linearGradient>
+                <linearGradient id="paint11_linear_0_1" x1="133.09" y1="9.58074" x2="108.957" y2="64.629" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#EDDCFB"/>
+                <stop offset="1" stop-color="#F0B6F6"/>
+                </linearGradient>
+                <linearGradient id="paint12_linear_0_1" x1="326.011" y1="0" x2="326.011" y2="86.5166" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#E63D8E"/>
+                <stop offset="1" stop-color="#F0C344"/>
+                </linearGradient>
+                <linearGradient id="paint13_linear_0_1" x1="291.385" y1="139.788" x2="291.385" y2="221.005" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#EED8FB"/>
+                <stop offset="1" stop-color="#F0BBF7"/>
+                </linearGradient>
+                <linearGradient id="paint14_linear_0_1" x1="305.588" y1="32.7656" x2="305.588" y2="193.539" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F0ADF7"/>
+                <stop offset="1" stop-color="#4EA9F4"/>
+                </linearGradient>
+                </defs>
+            </svg>                
+          </a>
+        </div>
+  
+        <div class="md:hidden">
+          <button type="button" class="hs-collapse-toggle flex justify-center items-center size-6 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-none focus:bg-gray-200" id="hs-navbar-header-floating-collapse" aria-expanded="false" aria-controls="hs-navbar-header-floating" aria-label="Toggle navigation" data-hs-collapse="#hs-navbar-header-floating">
+            <svg class="hs-collapse-open:hidden shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+            <svg class="hs-collapse-open:block hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+  
+      <div id="hs-navbar-header-floating" class="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow md:block" aria-labelledby="hs-navbar-header-floating-collapse">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-3 mt-3 md:mt-0 py-2 md:py-0 md:ps-7">
+          <a id="home-button" href="/" aria-current="page">Home</a>
+          <a id="programs-button" href="/programs">Programs</a>
+          <a id="upcoming-button" href="/upcoming">Upcoming</a>
+          <a id="login-button" href="/login">Login</a>
+        </div>
+      </div>
+    </nav>
+</header>
 <script>
-    
+
+    const selected_nav = 'py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-gray-800 font-medium text-gray-800 focus:outline-none';
+    const unselected_nav = 'py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none';
+    const home_button = document.getElementById('home-button');
+    const programs_button = document.getElementById('programs-button');
+    const upcoming_button = document.getElementById('upcoming-button');
+    const login_button = document.getElementById('login-button');
+
+    if (window.location.pathname === '/'){
+        home_button.classList = selected_nav;
+        programs_button.classList = unselected_nav;
+        upcoming_button.classList = unselected_nav;
+        login_button.classList = unselected_nav;
+    } else if (window.location.pathname === '/programs'){
+        home_button.classList = unselected_nav;
+        programs_button.classList = selected_nav;
+        upcoming_button.classList = unselected_nav;
+        login_button.classList = unselected_nav;
+    } else if (window.location.pathname === '/upcoming'){
+        home_button.classList = unselected_nav;
+        programs_button.classList = unselected_nav;
+        upcoming_button.classList = selected_nav;
+        login_button.classList = unselected_nav;
+    } else if (window.location.pathname === '/login'){
+        home_button.classList = unselected_nav;
+        programs_button.classList = unselected_nav;
+        upcoming_button.classList = unselected_nav;
+        login_button.classList = selected_nav;
+    }
 
 </script>
