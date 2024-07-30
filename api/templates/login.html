@@ -28,7 +28,7 @@
       
             <div class="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6">Or</div>
       
-            <form>
+            <form onsubmit="SignInUser(event)">
               <div class="grid gap-y-4">
                 <div>
                   <label for="email" class="block text-sm mb-2">Email address</label>
@@ -65,7 +65,7 @@
                     <label for="remember-me" class="text-sm">Remember me</label>
                   </div>
                 </div>
-                <button type="submit" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Sign in</button>
+                <button id="email-sign-in-btn" onclick="SignInUser()"  class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Sign in</button>
               </div>
             </form>
           </div>
@@ -74,3 +74,68 @@
     </div>
    </body>
 </html>
+
+
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
+import { getAuth, signInWithCustomToken,signInWithEmailAndPassword,onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
+import{getFirestore} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js"
+
+const firebaseConfig = {
+apiKey: "AIzaSyAr_P9i3krDxNbc4hTgn7leF5DLs3pQZQA",
+authDomain: "klide-1bb92.firebaseapp.com",
+projectId: "klide-1bb92",
+storageBucket: "klide-1bb92.appspot.com",
+messagingSenderId: "101012623664",
+appId: "1:101012623664:web:a12b39f84284e9ef8838f5"
+};
+const app = initializeApp(firebaseConfig)
+const auth = getAuth()
+console.log("Hello")
+onAuthStateChanged(auth,(user) => {
+  if (user) {
+    var uid = user.uid;
+    console.log("User is signed in user email : ",user.email)
+    window.location.href = "/programs"
+  } else {
+    console.log("User is signed out")
+  }
+});
+
+window.SignInUser = function(event) {
+  event.preventDefault(); // Prevent the form from submitting normally
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      var user = userCredential.user;
+      console.log("Successfully signed in", user);
+      console.log("User Email", user.email);
+      return user.email
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log("Login Failed", errorMessage);
+    });
+    
+};
+
+
+</script>
+
+<script>
+// function SignInUser(email,password){
+// signInWithEmailAndPassword(auth,email,password).then((userCredential) => {
+//     var user = userCredential.user;
+//     console.log("Sucessfully signed IN")
+// }).catch((error) => {
+//     var errorCode = error.code;
+//     var errorMessage = error.message;
+//     console.log("Login Failed",errorMessage)   
+// });
+
+// }
+</script>
