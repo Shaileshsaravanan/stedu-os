@@ -21,5 +21,9 @@ def programs():
 def login():
     return render_template('login.html')
 
+@app.route('/user/profile')
+def user_profile():
+    return render_template('user/profile.html')
+
 if __name__ == '__main__':
     app.run(debug=True, port=8000)

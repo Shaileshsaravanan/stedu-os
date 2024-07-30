@@ -96,7 +96,8 @@
               <a id="home-button" href="/" aria-current="page">Home</a>
               <a id="programs-button" href="/programs">Programs</a>
               <a id="upcoming-button" href="/upcoming">Upcoming</a>
-              <a id="login-button" href="/login">Login</a>
+              <a id="discover-button" href="/discover">Discover</a>
+              <a id="newsletters-button" href="/newsletters">Newsletters</a>
           </div>
           <div class="flex items-center">
               <span class="ml-4 inline-flex items-center justify-center w-8 h-8 text-sm font-semibold leading-none rounded-full bg-gray-100 text-gray-800">
@@ -114,7 +115,8 @@
               <a id="home-button" href="/" aria-current="page">Home</a>
               <a id="programs-button" href="/programs">Programs</a>
               <a id="upcoming-button" href="/upcoming">Upcoming</a>
-              <a id="login-button" href="/login">Login</a>
+              <a id="discover-button" href="/discover">Discover</a>
+              <a id="newsletters-button" href="/newsletters">Newsletters</a>
           </div>
       </div>
   </nav>
@@ -127,28 +129,45 @@
   const home_button = document.getElementById('home-button');
   const programs_button = document.getElementById('programs-button');
   const upcoming_button = document.getElementById('upcoming-button');
-  const login_button = document.getElementById('login-button');
+  const discover_button = document.getElementById('discover-button');
+  const newsletters_button = document.getElementById('newsletters-button');
 
   if (window.location.pathname === '/'){
       home_button.classList = selected_nav;
       programs_button.classList = unselected_nav;
       upcoming_button.classList = unselected_nav;
-      login_button.classList = unselected_nav;
+      discover_button.classList = unselected_nav;
+      newsletters_button.classList = unselected_nav;
   } else if (window.location.pathname === '/programs'){
       home_button.classList = unselected_nav;
       programs_button.classList = selected_nav;
       upcoming_button.classList = unselected_nav;
-      login_button.classList = unselected_nav;
+      discover_button.classList = unselected_nav;
+      newsletters_button.classList = unselected_nav;
   } else if (window.location.pathname === '/upcoming'){
       home_button.classList = unselected_nav;
       programs_button.classList = unselected_nav;
       upcoming_button.classList = selected_nav;
-      login_button.classList = unselected_nav;
-  } else if (window.location.pathname === '/login'){
+      discover_button.classList = unselected_nav;
+      newsletters_button.classList = unselected_nav;
+  } else if (window.location.pathname === '/discover'){
       home_button.classList = unselected_nav;
       programs_button.classList = unselected_nav;
       upcoming_button.classList = unselected_nav;
-      login_button.classList = selected_nav;
+      discover_button.classList = selected_nav;
+      newsletters_button.classList = unselected_nav;
+  } else if (window.location.pathname === '/newsletters'){
+      home_button.classList = unselected_nav;
+      programs_button.classList = unselected_nav;
+      upcoming_button.classList = unselected_nav;
+      discover_button.classList = unselected_nav;
+      newsletters_button.classList = selected_nav;
+  } else {
+      home_button.classList = unselected_nav;
+      programs_button.classList = unselected_nav;
+      upcoming_button.classList = unselected_nav;
+      discover_button.classList = unselected_nav;
+      newsletters_button.classList = unselected_nav;
   }
 
 </script>
