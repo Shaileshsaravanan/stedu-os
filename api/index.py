@@ -2,12 +2,6 @@ from flask import Flask, render_template,request,redirect,url_for,session
 from firebase_admin import credentials
 from google.cloud import storage
 
-try:
-    storage_client = storage.Client.from_service_account_json('api/firestore.json')
-    cred = credentials.Certificate('api/firestore.json')
-except:
-    storage_client = storage.Client.from_service_account_json('firestore.json')
-    cred = credentials.Certificate('firestore.json')
 #from dotenv import load_dotenv
 
 #load_dotenv()
