@@ -1,4 +1,13 @@
 from flask import Flask, render_template,request,redirect,url_for,session
+from firebase_admin import credentials
+from google.cloud import storage
+
+try:
+    storage_client = storage.Client.from_service_account_json('api/firestore.json')
+    cred = credentials.Certificate('api/firestore.json')
+except:
+    storage_client = storage.Client.from_service_account_json('firestore.json')
+    cred = credentials.Certificate('firestore.json')
 #from dotenv import load_dotenv
 
 #load_dotenv()
@@ -24,6 +33,20 @@ def login():
 @app.route('/user/profile')
 def user_profile():
     return render_template('user/profile.html')
+
+@app.route('/signup')
+def signup_page():
+    return render_template('Sign_up_page.html')
+
+@app.route("/api/v1/signup", methods=["POST"])
+def create_user():
+    data = request.json
+    user_email = data["email"]
+    user_password = data["password"]
+    user_name = data["name"]
+    print(user_email, user_password)
+    return {"Status": "Success","code" :"200"}
+
 @app.route('/api/v1/get/user_data')
 def fetch_user_data():
     data = request.json
