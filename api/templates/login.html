@@ -15,8 +15,8 @@
             </p>
           </div>
       
-          <div class="mt-5">
-            <button type="button" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+          <div  onclick="SigninUser_With_Google()" class="mt-5">
+            <button type="button"  class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
               <svg class="w-4 h-auto" width="46" height="47" viewBox="0 0 46 47" fill="none">
                 <path d="M46 24.0287C46 22.09 45.8533 20.68 45.5013 19.2112H23.4694V27.9356H36.4069C36.1429 30.1094 34.7347 33.37 31.5957 35.5731L31.5663 35.8669L38.5191 41.2719L38.9885 41.3306C43.4477 37.2181 46 31.1669 46 24.0287Z" fill="#4285F4"/>
                 <path d="M23.4694 47C29.8061 47 35.1161 44.9144 39.0179 41.3012L31.625 35.5437C29.6301 36.9244 26.9898 37.8937 23.4987 37.8937C17.2793 37.8937 12.0281 33.7812 10.1505 28.1412L9.88649 28.1706L2.61097 33.7812L2.52296 34.0456C6.36608 41.7125 14.287 47 23.4694 47Z" fill="#34A853"/>
@@ -28,7 +28,7 @@
       
             <div class="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6">Or</div>
       
-            <form onsubmit="SignInUser(event)">
+            <form onsubmit="return false;" >
               <div class="grid gap-y-4">
                 <div>
                   <label for="email" class="block text-sm mb-2">Email address</label>
@@ -66,6 +66,7 @@
                   </div>
                 </div>
                 <button id="email-sign-in-btn" onclick="SignInUser()"  class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Sign in</button>
+                <button >click me</button>
               </div>
             </form>
           </div>
@@ -79,7 +80,7 @@
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
-import { getAuth, signInWithCustomToken,signInWithEmailAndPassword,onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
+import { signInWithRedirect,getAuth, signInWithCustomToken,signInWithEmailAndPassword,onAuthStateChanged,GoogleAuthProvider,signInWithPopup } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
 import{getFirestore} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js"
 
 const firebaseConfig = {
@@ -93,15 +94,28 @@ appId: "1:101012623664:web:a12b39f84284e9ef8838f5"
 const app = initializeApp(firebaseConfig)
 const auth = getAuth()
 console.log("Hello")
-onAuthStateChanged(auth,(user) => {
-  if (user) {
-    var uid = user.uid;
-    console.log("User is signed in user email : ",user.email)
-    window.location.href = "/programs"
-  } else {
-    console.log("User is signed out")
-  }
-});
+
+
+window.SigninUser_With_Google = function(event){
+    //event.preventDefault(); // Prevent the form from submitting normally
+    console.log("Sign in with google")
+    //event.preventDefault(); 
+    const provider = new GoogleAuthProvider();
+    //signInWithRedirect(auth, provider);
+    signInWithPopup(auth, provider)
+        .then((result) => {
+        //signInWithRedirect(auth, provider);
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.customData.email;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.log("Error",errorMessage)
+    });
+}
 
 window.SignInUser = function(event) {
   event.preventDefault(); // Prevent the form from submitting normally
@@ -122,6 +136,27 @@ window.SignInUser = function(event) {
     });
     
 };
+
+// window.SigninUser_With_Google = function(event) {
+//   event.preventDefault(); // Prevent the form from submitting normally
+//   console.log ("Sign in with google")
+//   const email = document.getElementById('email').value;
+//   const password = document.getElementById('password').value;
+
+//   signInWithEmailAndPassword(auth, email, password)
+//     .then((userCredential) => {
+//       var user = userCredential.user;
+//       console.log("Successfully signed in", user);
+//       console.log("User Email", user.email);
+//       return user.email
+//     })
+//     .catch((error) => {
+//       var errorCode = error.code;
+//       var errorMessage = error.message;
+//       console.log("Login Failed", errorMessage);
+//     });
+    
+// };
 
 
 </script>

@@ -169,5 +169,35 @@
       discover_button.classList = unselected_nav;
       newsletters_button.classList = unselected_nav;
   }
+ 
 
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
+import { signInWithRedirect,getAuth, signInWithCustomToken,signInWithEmailAndPassword,onAuthStateChanged,GoogleAuthProvider,signInWithPopup } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
+import{getFirestore} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js"
+
+const firebaseConfig = {
+apiKey: "AIzaSyAr_P9i3krDxNbc4hTgn7leF5DLs3pQZQA",
+authDomain: "klide-1bb92.firebaseapp.com",
+projectId: "klide-1bb92",
+storageBucket: "klide-1bb92.appspot.com",
+messagingSenderId: "101012623664",
+appId: "1:101012623664:web:a12b39f84284e9ef8838f5"
+};
+const app = initializeApp(firebaseConfig)
+const auth = getAuth()
+console.log("Hello")
+onAuthStateChanged(auth,(user) => {
+  if (user) {
+    var uid = user.uid;
+    console.log("User is signed in user email : ",user.email)
+    if (window.location.pathname === '/login'){
+      window.location.href = "/programs"
+    }
+  } else {
+    console.log("User is signed out")
+  }
+});
 </script>
