@@ -194,7 +194,7 @@ onAuthStateChanged(auth,(user) => {
     var uid = user.uid;
     console.log("User is signed in user email : ",user.email)
     if (window.location.pathname === '/login'){
-      window.location.href = "/programs"
+      //window.location.href = "/programs"
     }
   } else {
     console.log("User is signed out")

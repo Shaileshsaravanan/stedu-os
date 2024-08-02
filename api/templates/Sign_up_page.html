@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 {% include 'header.html' %}
-<section class="bg-gray-50">
-    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+<section class="mt-10 pt-10 bg-gray-50">
+    <div class="flex mt-10 flex-col items-center justify-center px-6 py-8 mx-auto md:h- lg:py-0">
 
         <div class="w-full bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -70,7 +70,7 @@ function SignUpUser(name, email, password, confirm_password) {
         .then((data) => {
             if (data.error) {
                 alert(data.error);
-            } else {
+            } else if (data.Status=="Success") {
                 console.log("account created successfully");
                 login_user(email,password);
             }
@@ -84,14 +84,22 @@ function SignUpUser(name, email, password, confirm_password) {
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
 import { signInWithRedirect,getAuth, signInWithCustomToken,signInWithEmailAndPassword,onAuthStateChanged,GoogleAuthProvider,signInWithPopup } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
 import{getFirestore} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js"
+const firebaseConfig = {
+apiKey: "AIzaSyAr_P9i3krDxNbc4hTgn7leF5DLs3pQZQA",
+authDomain: "klide-1bb92.firebaseapp.com",
+projectId: "klide-1bb92",
+storageBucket: "klide-1bb92.appspot.com",
+messagingSenderId: "101012623664",
+appId: "1:101012623664:web:a12b39f84284e9ef8838f5"
+};
 window.login_user  = function(email,password){
-    //event.preventDefault();
-    //const email = document.getElementById("email").value;
-    //const password = document.getElementById("password").value;
+    const app = initializeApp(firebaseConfig)
+    const auth = getAuth()
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
+        window.location.href = "/programs"
     })
     .catch((error) => {
         const errorCode = error.code;
