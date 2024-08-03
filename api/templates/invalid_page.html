@@ -1,3 +1,46 @@
 <!DOCTYPE html>
-<html lang="en"></html>
 {% include 'header.html' %}
+<html lang="en"></html>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
+import { signInWithRedirect,getAuth, signInWithCustomToken,signInWithEmailAndPassword,onAuthStateChanged,GoogleAuthProvider,signInWithPopup } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
+import{getFirestore} from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js"
+const firebaseConfig = {
+apiKey: "AIzaSyAr_P9i3krDxNbc4hTgn7leF5DLs3pQZQA",
+authDomain: "klide-1bb92.firebaseapp.com",
+projectId: "klide-1bb92",
+storageBucket: "klide-1bb92.appspot.com",
+messagingSenderId: "101012623664",
+appId: "1:101012623664:web:a12b39f84284e9ef8838f5"
+};  
+window.VerifyIDToken = async function(IDtoken){
+    const response = await fetch('/api/v1/verify/IDToken', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "id_token": IDtoken
+        })
+    });
+
+    if (!response.ok) {
+        throw new Error(`API request failed with status ${response.status}`);
+    }
+
+    const responseData = await response.json();
+
+    console.log('API response:', responseData);
+}
+const app = initializeApp(firebaseConfig)
+const auth = getAuth()
+onAuthStateChanged(auth,(user) => {
+  user.getIdTokenResult().then((idTokenResult) => {
+    console.log("Token",idTokenResult.token)
+    VerifyIDToken(idTokenResult.token)
+    
+  })
+});
+
+
+</script>

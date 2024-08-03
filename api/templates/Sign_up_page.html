@@ -92,6 +92,26 @@ storageBucket: "klide-1bb92.appspot.com",
 messagingSenderId: "101012623664",
 appId: "1:101012623664:web:a12b39f84284e9ef8838f5"
 };
+window.VerifyIDToken = async function(IDtoken){
+    const response = await fetch('/api/v1/verify/IDToken', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "id_token": IDtoken
+        })
+    });
+
+    if (!response.ok) {
+        throw new Error(`API request failed with status ${response.status}`);
+    }
+
+    const responseData = await response.json();
+
+    console.log('API response:', responseData);
+}
+
 window.login_user  = function(email,password){
     const app = initializeApp(firebaseConfig)
     const auth = getAuth()
@@ -99,6 +119,8 @@ window.login_user  = function(email,password){
     .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
+        user.getIdTokenResult().then((idTokenResult) => {
+        console.log("Token",idTokenResult.token)})
         window.location.href = "/programs"
     })
     .catch((error) => {
