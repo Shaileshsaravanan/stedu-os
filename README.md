@@ -15,3 +15,7 @@
   </ul>
 
 </li>
+<h2>Tech Stack for this site</h2>
+<p><strong>Flask :</strong> Python based Web - Development Framework</p>
+<p><strong>Firebase :</strong> Using firebase for backend FirebaseAuth - for basic authneication and data storage</p>
+<p><strong>Taiwlind : front end </strong></p>
